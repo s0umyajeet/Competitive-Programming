@@ -5,20 +5,27 @@ int main() {
         int t;
         cin >> t;
         while (t--) {
-                vector<int> initial(3);
-                vector<int> final(3);
+                vector<float> initial(3);
+                vector<float> final(3);
 
                 for (auto &x : initial) cin >> x;
                 for (auto &x : final) cin >> x;
+                
+                set<float> prodSet;
+                set<float> sumSet;
 
-                int prod_count = 0;
-                int sum_count = 0;
-
-                vector<int> prod(3);
-                vector<int> sum(3);
-                for (int  i = 0; i < 3; i++) {
-                        prod[i] = final[i] / initial[i];
-                        sum[i] = final[i] - initial[i];
+                for (int i = 0; i < 3; i++) {
+                        prodSet.insert(final[i] / initial[i]);
+                        sumSet.insert(final[i] - initial[i]);
                 }
+
+                int a = 0, b = 0;
+                a = prodSet.size();
+                b = sumSet.size();
+
+                if (prodSet.find(1.0f) != prodSet.end()) a--;
+                if (sumSet.find(0.0f) != sumSet.end()) b--;
+                cout << min(a, b) << endl;
         }
+        return 0;
 }
