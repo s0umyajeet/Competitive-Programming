@@ -4,12 +4,15 @@ using namespace std;
 int main() {
         int n, m;
         cin >> n >> m;
-
         vector<int> v(n);
-        for (int i = 0; i < m; i++) {
+
+        while (m--) {
                 int a, b;
                 cin >> a >> b;
-                v[a - 1]++, v[b - 1]++;
+
+                v[a - 1]++; v[b - 1]++;
         }
-        for (auto x: v) cout << x << endl;
-}
+        set<int> s(v.begin(), v.end());
+        if (s.size() == 1) cout << "YES" << endl;
+        else cout << "NO" << endl;
+} 
