@@ -16,6 +16,7 @@ int main() {
                         }
                 }
         }
+        
         for (int i = 0; i < n; i++) {
                 cout << list[i].size() << " ";
                 for (int j = 0; j < list[i].size(); j++) {
