@@ -8,7 +8,7 @@ int32_t main() {
         while (t--) {
                 int n, a, b, c, d, p, q, y;
                 cin >> n >> a >> b >> c >> d >> p >> q >> y;
-
+  
                 vector<int> cities(n);
                 for (auto &x : cities) cin >> x;
 
