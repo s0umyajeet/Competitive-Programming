@@ -2,7 +2,6 @@
 using namespace std;
 
 int dfs(vector<bool> &visited, vector<vector<int>> adjacency_list, int i) {
-        visited[i] = true;        
         stack<int> s;
 
         int ans = 0;
