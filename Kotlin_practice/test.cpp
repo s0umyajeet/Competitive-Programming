@@ -2,14 +2,29 @@
 using namespace std;
 
 int main() {
-        vector<int> arr = {1, 3, 4, 5};
-        for (int k = 0; k < 4; k++) {
-                for (int i = k; i < 4; i++) {
-                        for (int j = i; j < 4; j++) {
-                                cout << arr[j] << " ";
+        int t;
+        cin >> t;
+        
+        while (t--) {
+                int n;
+                cin >> n;
+                vector<int> arr(n);
+
+                for (auto &x : arr) cin >> x;
+
+                int ans = 0;
+                for (int k = 0; k < n; k++) {
+                        for (int i = k; i < n; i++) {
+                                int sum = 0;
+                                int prod = 1;
+                                for (int j = i; j < n; j++) {
+                                        sum += arr[j];
+                                        prod *= arr[j];
+                                }
+                                if (sum == prod) ans++;            
                         }
-                        cout << endl;
                 }
+                cout << ans << endl;
         }
         return 0;
 }

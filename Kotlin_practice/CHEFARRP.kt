@@ -20,8 +20,8 @@ fun main(args: Array<String>) {
                                 var sum = 0
                                 var prod = 1
                                 for (k in j until n) {
-                                        sum += arr[j]
-                                        prod *= arr[j]
+                                        sum += arr[k]
+                                        prod *= arr[k]
                                         // print("" + arr[k] + " ")
                                 }
                                 if (sum == prod) ans++;
