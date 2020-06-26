@@ -2,7 +2,7 @@
 using namespace std;
 #define int long long
 
-int main() {
+int32_t main() {
         int n;
         cin >> n;
         cout << n * n << endl;
