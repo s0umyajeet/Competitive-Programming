@@ -14,6 +14,9 @@ int32_t main() {
         cin >> t;
 
         while(t--) {
-                
+                int l, r;
+                cin >> l >> r;
+                cout << l << " " << l * 2 << endl;
         }
+        return 0;
 }
