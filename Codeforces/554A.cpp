@@ -6,24 +6,6 @@
 #define endl    "\n"
 using namespace std;
 
-bool find_number(vector<int> &even_set, vector<int> &odd_set, vector<int> &visited, int mode) {
-        if (mode == 0) {
-                for (auto itr = even_set.begin(); itr != even_set.end(); itr++) {
-                        if (find(visited.begin(), visited.end(), *itr) == visited.end()) {
-                                visited.push_back(*itr);
-                                return true;
-                        }
-                }
-        } else {
-                for (auto itr = odd_set.begin(); itr != odd_set.end(); itr++) {
-                        if (find(visited.begin(), visited.end(), *itr) == visited.end()) {
-                                visited.push_back(*itr);
-                                return true;
-                        }       
-                }
-        }
-        return false;
-}
 
 int32_t main() {
         ios_base::sync_with_stdio(0);
@@ -38,25 +20,27 @@ int32_t main() {
 
                 vector<int> v(n);
                 vector<int> k(m);
-                vector<int> odd_set;
-                vector<int> even_set;
-                vector<int> visited;
-
+                int even = 0;
+                int odd = 0;
                 for (auto &x : v) cin >> x;
                 for (auto &x : k) {
                         cin >> x;
-                        if (x & 1) odd_set.push_back(x);
-                        else even_set.push_back(x);
+                        if (x & 1) odd++;
+                        else even++;
                 }
 
                 int count = 0;
                 for (int i = 0; i < n; i++) {
                         if (v[i] % 2) {
-                                if (find_number(even_set, odd_set, visited, 0))
+                                if (even > 0) {
                                         count++;
+                                        even--;
+                                }
                         } else {
-                                if (find_number(even_set, odd_set, visited, 1))
+                                if (odd > 0) {
                                         count++;
+                                        odd--;
+                                }
                         }
                 }
                 cout << count << endl;
