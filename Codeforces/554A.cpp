@@ -6,6 +6,25 @@
 #define endl    "\n"
 using namespace std;
 
+bool find_number(vector<int> &even_set, vector<int> &odd_set, vector<int> &visited, int mode) {
+        if (mode == 0) {
+                for (auto itr = even_set.begin(); itr != even_set.end(); itr++) {
+                        if (find(visited.begin(), visited.end(), *itr) == visited.end()) {
+                                visited.push_back(*itr);
+                                return true;
+                        }
+                }
+        } else {
+                for (auto itr = odd_set.begin(); itr != odd_set.end(); itr++) {
+                        if (find(visited.begin(), visited.end(), *itr) == visited.end()) {
+                                visited.push_back(*itr);
+                                return true;
+                        }       
+                }
+        }
+        return false;
+}
+
 int32_t main() {
         ios_base::sync_with_stdio(0);
         cin.tie(0);
@@ -17,30 +36,30 @@ int32_t main() {
                 int n, m;
                 cin >> n >> m;
 
-                int odd1 = 0;
-                int even1 = 0;
-                int odd2 = 0;
-                int even2 = 0;
-
                 vector<int> v(n);
-                vector<int> p(m);
+                vector<int> k(m);
+                vector<int> odd_set;
+                vector<int> even_set;
+                vector<int> visited;
 
-                for (auto &x : v) {
+                for (auto &x : v) cin >> x;
+                for (auto &x : k) {
                         cin >> x;
-                        if (x & 1) odd1++;
-                        else even1++;
+                        if (x & 1) odd_set.push_back(x);
+                        else even_set.push_back(x);
                 }
-                for (auto &x : p) {
-                        cin >> x;
-                        if (x & 1) odd2++;
-                        else even2++;
+
+                int count = 0;
+                for (int i = 0; i < n; i++) {
+                        if (v[i] % 2) {
+                                if (find_number(even_set, odd_set, visited, 0))
+                                        count++;
+                        } else {
+                                if (find_number(even_set, odd_set, visited, 1))
+                                        count++;
+                        }
                 }
-                cout << odd1 << " " << even1 << endl;
-                cout << odd2 << " " << even2 << endl;
-                
-                int min1 = min(even1, odd2);
-                int min2 = min(even2, odd1);
-                cout << max(min1, min2) << endl;
+                cout << count << endl;
         }
         return 0;
 }
