@@ -22,6 +22,10 @@ int32_t main() {
                 else {
                         if (v[0] == v[1]) {
                                 v[2]--;
+                                int case1 = 2 * (v[2] - v[1]);
+                                v[2]++;
+                                v[0]++;
+                                v[1]++;  
                                 coutans << 2 * (v[2] - v[1]) << endl;
                         } else if (v[1] == v[2]) {
                                 v[0]++;
