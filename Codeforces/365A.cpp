@@ -12,9 +12,15 @@ int32_t main() {
 
 	int t = 1;
 	cin >> t;
-
+    int mishka = 0, chishka = 0;
 	while (t--) {
-		
+		int a, b;
+        cin >> a >> b;
+        if (a > b) mishka++;
+        else chishka++;
 	}
+    if (mishka > chishka) cout << "Mishka" << endl;
+    else if (mishka == chishka) cout << "Friendship is magic!^^" << endl;
+    else cout << "Chris" << endl;
 	return 0;
 }

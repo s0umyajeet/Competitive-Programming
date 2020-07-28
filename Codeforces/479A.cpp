@@ -11,10 +11,19 @@ int32_t main() {
 	cin.tie(0);
 
 	int t = 1;
-	cin >> t;
-
+	// cin >> t;
 	while (t--) {
-		
+		int n, k;
+        cin >> n >> k;
+
+        while (k--) {
+            if (n % 10 != 0) {
+                n--;
+            } else {
+                n /= 10;
+            }
+        }
+        cout << n << endl;
 	}
 	return 0;
 }

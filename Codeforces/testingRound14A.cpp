@@ -21,8 +21,9 @@ int32_t main() {
                 cin >> s;
                 int count = 0;
                 for (int i = 0; i < n; ) {
-                        for (int j = i + d; ;j--) {
-                                //cout << "exe";
+                        cout << i << endl;
+                        for (int j = i + d; j >= i; j--) {
+                                // cout << "exe";
                                 if (j < n && s[j] == '1') {
                                         i = j;
                                         count++;

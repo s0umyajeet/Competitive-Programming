@@ -12,9 +12,13 @@ int32_t main() {
 
 	int t = 1;
 	cin >> t;
-
+    int count = 0;
 	while (t--) {
-		
+		int a, b;
+        cin >> a >> b;
+        int rem = b - a;
+        if (rem >= 2) count++;
 	}
+    cout << count << endl;
 	return 0;
 }

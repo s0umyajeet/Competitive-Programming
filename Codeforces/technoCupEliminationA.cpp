@@ -12,9 +12,15 @@ int32_t main() {
 
 	int t = 1;
 	cin >> t;
-
+    int flag = 0;
 	while (t--) {
-		
+		int n;
+        cin >> n;
+        if (n == 1) {
+            flag = 1;
+        }
 	}
+    if (flag == 0) cout << "EASY" << endl;
+    else cout << "HARD" << endl;
 	return 0;
 }

@@ -14,7 +14,14 @@ int32_t main() {
 	cin >> t;
 
 	while (t--) {
-		
+        int x, y, n;
+        cin >> x >> y >> n;
+        for (int i = n; i >= 0; i--) {
+            if (i % x == y) {
+                cout << i << endl;
+                break;
+            }
+        }
 	}
 	return 0;
 }

@@ -14,7 +14,10 @@ int32_t main() {
 	cin >> t;
 
 	while (t--) {
-		
+        int n;
+        cin >> n;
+        vector<int> color(n);
+        for (auto &x : color) cin >> x;
 	}
 	return 0;
 }

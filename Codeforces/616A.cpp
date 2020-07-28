@@ -19,36 +19,22 @@ int32_t main() {
                 string s;
                 cin >> s;
         
-                int even = 0;
                 int odd = 0;
                 for (auto x : s) {
-                        if ((x - 48) % 2 == 0) even++;
-                        else odd++;
+                        if ((x - 48) % 2 == 1) odd++;
                 }
-
-                if (odd % 2 == 0 && (s[s.size() - 1] - 48) % 2 == 1) {
-                        coutans << s << endl;
-                } else {
-                        if (odd % 2 == 1 && (s[s.size() - 1] - 48) % 2 == 1) {
-                                for (int i = 0; i < s.size() - 1; i++) {
-                                        if ((s[i] - 48) % 2 == 0)
-                                                cout << s[i];
+                if (odd < 2) cout << -1;
+                else {
+                        int count = 0;
+                        for (auto x : s) {
+                                if (count == 2) break;
+                                if ((x - 48) % 2 == 1) {
+                                        cout << x;
+                                        count++;
                                 }
-                        } else if (odd % 2 == 0 && (s[s.size() - 1] - 48) % 2 == 0) {
-                                int oddcount = 0;
-                                for (int i = 0; i < n; i++) {
-                                        if ((s[i] - 48) % 2 == 1) {
-                                                oddcount++;
-                                        }
-                                        cout << s[i] << endl;
-                                        if (oddcount % 2 == 0 && oddcount != 0 && (s[i] - 48) % 2 == 1) {
-                                                break;
-                                        }
-                                        
-                                }
-                        } else if (odd % 2 == 1 && (s[s.size() - 1] - 48) % 2 == 0) {
-                                                               
-                
+                        }
+                }
+                cout << endl ;
         }
         return 0;
 }
