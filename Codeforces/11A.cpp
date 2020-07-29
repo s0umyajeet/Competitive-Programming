@@ -30,7 +30,6 @@ int32_t main() {
                                 }                                
                         }
                 }
-                // for (auto x : v) cout << x << ' ';
                 cout << cost << endl;
 	}
 	return 0;
