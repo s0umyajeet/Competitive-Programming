@@ -1,7 +1,5 @@
 #include <bits/stdc++.h>
 #define int     long long
-#define YES     cout << "YES" << endl
-#define NO      cout << "NO" << endl
 #define coutans cout << "ans: "     //debug
 #define endl    "\n"
 using namespace std;
