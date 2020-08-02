@@ -19,50 +19,30 @@ int32_t main() {
                 int cost = 0;
                 bool fail = false;
 
+                int i = 0;
+                int j = n - 1;
 
-                if (n % 2 == 0) {
-                        for (int i = 0; i < n / 2; i++) {
-                                if (s[i] == 2 && s[n - 1 - i] == 2) {
-                                        cost += 2 * min(a, b);
-                                } else if (s[i] == 2 && s[n - 1 - i] == 1) {
-                                        cost += b;
-                                } else if (s[i] == 2 && s[n - 1 - i] == 0) {
-                                        cost += a;
-                                } else if (s[i] == 1 && s[n - 1 - i] == 2) {
-                                        cost += b;
-                                } else if (s[i] == 0 && s[n - 1 - i] == 2) {
-                                        cost += a;
-                                } else if (s[i] == 1 ^ s[n - 1 - i]) {
-                                        fail = true;
-                                        break;
-                                }
+                while (i <= j) {
+                        if (s[i] == 2 && s[j] == 2) {
+                                if (i == j) cost += min(a, b);
+                                else cost += 2 * min(a, b);
+                        } else if (s[i] == 2 && s[j] == 1) {
+                                cost += b;
+                        } else if (s[i] == 1 && s[j] == 2) {
+                                cost += b;
+                        } else if (s[i] == 2 && s[j] == 0) {
+                                cost += a;
+                        } else if (s[i] == 0 && s[j] == 2) {
+                                cost += a;
+                        } else if (s[i] ^ s[j]) {
+                                fail = true;
+                                break;
                         }
-                } else {
-                        for (int i = 0; i <= n / 2; i++) {
-                                if (s[i] == 2 && s[n - 1 - i] == 2) {
-                                        if (i == n / 2) {
-                                                cost += min(a, b);
-                                        } else cost += 2 * min(a, b);
-                                } else if (s[i] == 2 && s[n - 1 - i] == 1) {
-                                        cost += b;
-                                } else if (s[i] == 2 && s[n - 1 - i] == 0) {
-                                        cost += a;
-                                } else if (s[i] == 1 && s[n - 1 - i] == 2) {
-                                        cost += b;
-                                } else if (s[i] == 0 && s[n - 1 - i] == 2) {
-                                        cost += a;
-                                } else if (s[i] == 1 ^ s[n - 1 - i]) {
-                                        fail = true;
-                                        break;
-                                }
-                        }
-                } 
-
-                if (fail) {
-                        cout << -1 << endl;
-                } else {
-                        cout << cost << endl;
-                } 
+                        i++;
+                        j--;
+                }
+                if (!fail) cout << cost << endl;
+                else cout << -1 << endl;
 	}
 	return 0;
 }
