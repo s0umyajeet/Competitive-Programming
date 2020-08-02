@@ -17,28 +17,11 @@ int32_t main() {
                 string s;
                 cin >> s;
 
-                int l = 0;
-                int r = n - 1;
                 bool fail = false;
-                while (l < r) {
-                        if ((s[l] != 'a' || s[l] != 'z') && (s[r] != 'a' || s[r] != 'z')) {
-                                if (s[l] - 1 == s[r] - 1 || s[l] + 1 == s[r] + 1 || s[l] - 1 == s[r] + 1 || s[l] + 1 == s[r] - 1) {}
-                                else fail = true;
-                        } else if (s[l] == 'a') {
-                                if (s[r] == 'a' || s[r] == 'c') {}
-                                else fail = true;
-                        } else if (s[r] == 'a') {
-                                if (s[l] == 'a' || s[l] == 'c') {}
-                                else fail = true;
-                        } else if (s[l] == 'z') {
-                                if (s[r] == 'z' || s[r] == 'x') {}
-                                else fail = true;
-                        } else if (s[r] == 'z') {
-                                if (s[l] == 'z' || s[l] == 'x') {}
-                                else fail = true;
+                for (int i = 0; i < n / 2; i++) {
+                        if (abs(s[i] - s[n - 1 - i]) != 2 && s[i] != s[n - 1 - i]) {
+                                fail = true;
                         }
-                        l++;
-                        r--;
                 }
                 if (!fail) cout << "YES" << endl;
                 else cout << "NO" << endl;
