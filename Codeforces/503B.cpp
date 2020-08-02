@@ -4,22 +4,12 @@
 #define endl "\n"
 using namespace std;
 
-int space = 0;
 void dfs(vector<vector<int>> &adj, vector<bool> &visited, int v) {
-        space++;
-        for (int i = 0; i < space; i++) {
-                cout << " ";
-        }
-        cout << "visiting " << v << endl;
-        if (visited[v] == true) {
-                cout << v << endl;
-                return;
-        }
         visited[v] = true;
         for (auto u : adj[v]) {
                 if (!visited[u]) {
                         dfs(adj, visited, u);
-                } else cout << u << endl;
+                } else cout << u << " ";
         }
 } 
 int32_t main() {
@@ -42,8 +32,6 @@ int32_t main() {
 
                 for (int i = 1; i <= n; i++) {
                         vector<bool> visited(n + 1, false);
-                        space = 0;
-                        cout << "DFS on " << i << endl; 
                         dfs(adj, visited, i);
                 }
 	}
