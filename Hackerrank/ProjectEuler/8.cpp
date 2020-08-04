@@ -23,10 +23,6 @@ int32_t main() {
                         int prod = 1;
                         for (int j = i; j < i + k; j++) {
                                 prod *= s[j] - 48;
-                                if (s[j] == '0') {
-                                        i = i + k - 1;
-                                        break;
-                                }
                         }
                         max_prod = max(prod, max_prod);
                 }
@@ -34,17 +30,3 @@ int32_t main() {
 	}
 	return 0;
 }
-
-/*
-string sample = s.substr(i, k);
-                        auto itr = find(sample.begin(), sample.end(), '0'); 
-                        if (itr != sample.end()) {
-                                int prod = 1;
-                                for (auto x : sample) {
-                                        prod *= x;
-                                }
-                                max_prod = max(prod, max_prod);
-                        } else {
-                                i = itr - s.begin();
-                        }
-*/
