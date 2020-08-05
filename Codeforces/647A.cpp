@@ -5,18 +5,30 @@
 using namespace std;
 
 int calculate(int a, int b) {
-        if (b < a) return -1;
-        if (a == b) {
-                return 0;
-        } else {
-                if (b > a && b % 8 == 0)
-                        return 1 + calculate(a, b / 8);
-                else if (b > a &&  b % 4 == 0)
-                        return 1 + calculate(a, b / 4);
-                else if (b > a && b % 2 == 0)
-                        return 1 + calculate(a, b / 2);
-                else return -1;
+        if (a == b) return 0;
+        int count = 0;
+        while (b % 8 == 0) {
+                cout << b << " " << a << endl;
+                if (a == b) return count;
+                count++;
+                b /= 8;
         }
+        
+        while (b % 4 == 0) {
+                cout << b << " " << a << endl;
+                if (a == b) return count;
+                count++;
+                b /= 4;
+        }
+        while (b % 2 == 0) {
+                cout << b << " " << a << endl;
+                if (a == b) return count;
+                count++;
+                b /= 2;
+        }
+        cout << b << " " << a << endl;
+        if (a == b) return count;
+        else return -1;
 }
                 
 int32_t main() {

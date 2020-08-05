@@ -11,10 +11,21 @@ int32_t main() {
 	cin.tie(0);
 
 	int t = 1;
-	cin >> t;
+	// cin >> t;
 
 	while (t--) {
-		
+		string s;
+		cin >> s;
+		vector<string> v(5);
+		for (auto &x : v) cin >> x;
+
+		for (int i = 0; i < 5; i++) {
+			if (s[0] == v[i][0] || s[1] == v[i][1]) {
+				cout << "YES" << endl;
+				return 0;
+			}
+		}
+		cout << "NO" << endl;
 	}
 	return 0;
 }
