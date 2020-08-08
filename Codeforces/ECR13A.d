@@ -30,17 +30,8 @@ struct IO {
 void main() {
         IO cin;
         int t = 1;
-        // int t = cin.read_int;
+        int t = cin.read_int;
         while (t--) {
-                int n = cin.read_int;
-                bool done = false;
-                while (n--) {
-                        string name = cin.read_string;
-                        int prev_rating = cin.read_int;
-                        int new_rating = cin.read_int;
-                        if (prev_rating >= 2400 && new_rating > prev_rating) done = true;
-                }
-                if (done) writeln("YES");
-                else writeln("NO");
+
         }        
 }
