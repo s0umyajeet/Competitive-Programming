@@ -32,18 +32,24 @@ void main() {
         int t = 1;
         // int t = cin.read_int;
         while (t--) {
+                int n = cin.read_int;
                 string s = cin.read_string;
-                if (s[indexOf(s, '.') - 1] == '9') {
-                        writeln("GOTO Vasilisa.");
-                } else {
-                        int loc_of_dot = indexOf(s, '.');
-                        if (s[loc_of_dot + 1] < '5') {
-                                writeln(s[0..loc_of_dot]);
-                        } else {
-                                write(s[0..loc_of_dot - 1]);
-                                write(s[loc_of_dot - 1] - 47);
-                                writeln();
+                int[] groups;
+                for (int i = 0; i < s.length; i++) {
+                        if (s[i] == 'B') {
+                                int j = i;
+                                int count = 0;
+                                while (j < s.length && s[j] == 'B') {
+                                        count++;
+                                        j++;
+                                }
+                                i = j - 1;
+                                groups ~= count;
                         }
-                } 
-        }        
+                }
+                writeln(groups.length);
+                foreach(i; groups) {
+                        write(i, " ");
+                }
+        }                       
 }

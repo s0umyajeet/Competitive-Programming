@@ -32,18 +32,16 @@ void main() {
         int t = 1;
         // int t = cin.read_int;
         while (t--) {
-                string s = cin.read_string;
-                if (s[indexOf(s, '.') - 1] == '9') {
-                        writeln("GOTO Vasilisa.");
-                } else {
-                        int loc_of_dot = indexOf(s, '.');
-                        if (s[loc_of_dot + 1] < '5') {
-                                writeln(s[0..loc_of_dot]);
-                        } else {
-                                write(s[0..loc_of_dot - 1]);
-                                write(s[loc_of_dot - 1] - 47);
-                                writeln();
-                        }
-                } 
+                int a = cin.read_int;
+                int b = cin.read_int;
+                int c = cin.read_int;
+
+                while (1) {
+                        if (a * 2 <= b && a * 4 <= c) {
+                                break;
+                        } else a--;
+                }
+                writeln(a + a * 2 + a * 4);
+                
         }        
 }
