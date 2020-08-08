@@ -11,11 +11,10 @@ int32_t main() {
 	cin >> t;
 
 	while (t--) {
-                int a, b, c, n;
-                cin >> a >> b >> c >> n;
-                int total = a + b + c + n;
-                if (total % 3 == 0 && total / 3 >= max({a, b, c})) 
-                        cout << "YES" << endl;
+                int a, b;
+                cin >> a >> b;
+                if (min(a, b) == 1) cout << "YES" << endl;
+                else if (a == 2 && b == 2) cout << "YES" << endl;
                 else cout << "NO" << endl;
 	}
 	return 0;

@@ -11,23 +11,11 @@ int32_t main() {
 	cin >> t;
 
 	while (t--) {
-                int x, y, a, b;
-                cin >> x >> y >> a >> b;
-                int i = 0;
-                int begin1 = x;
-                int begin2 = y;
-                bool flag = false;
-                while (x < y) {
-                        x = begin1 + (i) * a;
-                        y = begin2 + (i) * (-b);
-                        if (x == y) {
-                                cout << i << endl;
-                                flag = true;
-                                break;
-                        }	
-                        i++;
-                }
-                if (!flag) cout << -1 << endl;
+                int a, b, d1, d2;
+                cin >> a >> b >> d1 >> d2;
+                if ((b - a) % (d1 + d2) == 0) 
+                        cout << (b - a) / (d1 + d2) << endl;
+                else cout << -1 << endl;
         }
 	return 0;
 }

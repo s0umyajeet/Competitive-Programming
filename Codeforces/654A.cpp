@@ -11,7 +11,10 @@ int32_t main() {
 	cin >> t;
 
 	while (t--) {
-
+		int n;
+		cin >> n;
+		if (n % 2) cout << n / 2 + 1 << endl;
+		else cout << n / 2 << endl;
 	}
 	return 0;
 }
