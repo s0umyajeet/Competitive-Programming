@@ -33,18 +33,14 @@ void main() {
         // int t = cin.read_int;
         while (t--) {
                 int n = cin.read_int;
-                int[] arr = new int[n];
-                foreach (ref i; arr) {
-                        i = cin.read_int;
+                char[] love = "I love".dup;
+                char[] hate = "I hate".dup;
+                for (int i = 0; i < n; i++) {
+                        if (i % 2 == 0) write(hate);
+                        else write(love);
+                        if (i != n - 1) write(" that ");
                 }
-                int[] ans = new int[n];
-                for (int i = n - 1; i >= 0; i--) {
-                        if (i == n - 1) ans[i] = arr[i];
-                        else ans[i] = arr[i] + arr[i + 1];
-                }
-                foreach (i; ans) {
-                        write(i, " ");
-                }
+                write(" it");
                 writeln();
         }        
 }
