@@ -1,8 +1,10 @@
 module _template;
 import std.stdio;
+import std.string;
 import std.algorithm;
 import std.container;
 import std.range;
+import std.math;
 import std.numeric;
 import std.conv;
 import std.typecons;
@@ -30,28 +32,23 @@ void main() {
         int t = 1;
         // int t = cin.read_int;
         while (t--) {
-                int a = cin.read_int;
-                int b = cin.read_int;
-                int n = cin.read_int;
-
-                int turn = 0;
-                while (1) {
-                        if (turn % 2 == 0) {
-                                if (n >= gcd(n, a)) {
-                                        n -= gcd(n, a);
-                                } else {
-                                        writeln(1);
-                                        return;
+                string s = cin.read_string;
+                if (s[indexOf(s, '.') - 1] == '9') {
+                        writeln("GOTO Vasilisa.");
+                } else {
+                        int loc_of_dot = indexOf(s, '.');
+                        if (s[loc_of_dot + 1] < '5') {
+                                for (int i = 0; i < loc_of_dot; i++) {
+                                        write(s[i]);
                                 }
+                                writeln();
                         } else {
-                                if (n >= gcd(n, b)) {
-                                        n -= gcd(n, b);
-                                } else {
-                                        writeln(0);
-                                        return;
+                                for (int i = 0; i < loc_of_dot - 1; i++) {
+                                        write(s[i]);
                                 }
+                                write(s[loc_of_dot - 1] - 47);
+                                writeln();
                         }
-                        turn++;
-                }
+                } 
         }        
 }

@@ -1,8 +1,10 @@
 module _template;
 import std.stdio;
+import std.string;
 import std.algorithm;
 import std.container;
 import std.range;
+import std.math;
 import std.numeric;
 import std.conv;
 import std.typecons;
