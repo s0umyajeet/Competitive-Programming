@@ -33,16 +33,19 @@ void main() {
         // int t = cin.read_int;
         while (t--) {
                 int n = cin.read_int;
-                int c_a = 0;
-                int c_b = 0;
-                for (int i = 0; i < n; i++) {
-                        int a = cin.read_int;
-                        int b = cin.read_int;
-                        if (a > b) c_a++;
-                        if (b > a) c_b++;
+                int d = cin.read_int;
+
+                char[][] att = new char[][d];
+                
+                int beat_streak = 0;
+                int count = 0;
+                for (int i = 0; i < d; i++) {
+                        att[i] = new char[n];
+                        att[i] = cin.read_string.dup;
+                        if (canFind(att[i][0..n], '0')) count++;
+                        else count = 0;
+                        beat_streak = max(beat_streak, count);
                 }
-                if (c_a > c_b) writeln("Mishka");
-                else if (c_b > c_a) writeln("Chris");
-                else writeln("Friendship is magic!^^");
+                writeln(beat_streak);
         }        
 }
