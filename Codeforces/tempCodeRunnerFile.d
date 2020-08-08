@@ -1,8 +1,5 @@
-import std.stdio;
-import std.algorithms;
-import std.container;
-import std.range;
-import std.numeric;
-import std.conv;
-import std.typecons;
-import std.format;
+
+                // if (pos[0] == 'a' && pos[1] == '1') count++; 
+                // if (pos[0] == 'a' && pos[1] == '8') count++;
+                // if (pos[0] == 'h' && pos[1] == '1') count++;
+                // if (pos[0] == 'h' &&
