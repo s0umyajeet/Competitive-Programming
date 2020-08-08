@@ -32,8 +32,28 @@ void main() {
         int t = 1;
         // int t = cin.read_int;
         while (t--) {
+                int w = 0;
+                int l = 0;
+
                 int n = cin.read_int;
-                int k = cin.read_int;
-                writeln(k * (n / k + 1));
+                int c = cin.read_int;
+
+                int[] sc = new int[n];
+                int[] ti = new int[n];
+                
+                foreach (ref x; sc) x = cin.read_int;
+                foreach (ref x; ti) x = cin.read_int;
+
+                for (int i = 0; i < n; i++) {
+                        l += max(0, sc[i] - sum(ti[0..i + 1]) * c);
+                }
+
+                for (int i = n - 1; i >= 0; i--) {
+                        w += max(0, sc[i] - sum(ti[i..n]) * c);
+                }
+
+                if (l > w) writeln("Limak");
+                else if (l < w) writeln("Radewoosh");
+                else writeln("Tie");
         }        
 }

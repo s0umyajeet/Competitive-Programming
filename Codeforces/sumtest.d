@@ -32,8 +32,7 @@ void main() {
         int t = 1;
         // int t = cin.read_int;
         while (t--) {
-                int n = cin.read_int;
-                int k = cin.read_int;
-                writeln(k * (n / k + 1));
+                int[5] arr = [11, 12, 3, 5, 4];
+                writeln(sum(arr[0 .. 5]));
         }        
 }

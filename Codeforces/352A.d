@@ -32,8 +32,11 @@ void main() {
         int t = 1;
         // int t = cin.read_int;
         while (t--) {
+                char[] arr;
+                for (int i = 1; i <= 1000; i++) {
+                        arr ~= i.to!string;
+                }
                 int n = cin.read_int;
-                int k = cin.read_int;
-                writeln(k * (n / k + 1));
+                writeln(arr[n - 1]);
         }        
 }

@@ -33,7 +33,14 @@ void main() {
         // int t = cin.read_int;
         while (t--) {
                 int n = cin.read_int;
-                int k = cin.read_int;
-                writeln(k * (n / k + 1));
-        }        
+                int[] arr = new int[n];
+                int pos1 = 0;
+                int posn = 0;
+                for (int i = 0; i < n; i++) {
+                        arr[i] = cin.read_int;
+                        if (arr[i] == 1) pos1 = i;
+                        if (arr[i] == n) posn = i;
+                }
+                writeln(max(abs(pos1 - n + 1), abs(pos1 - 0), abs(posn - 0), abs(posn - n + 1)));
+        }
 }
