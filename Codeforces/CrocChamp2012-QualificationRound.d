@@ -27,8 +27,27 @@ struct IO {
 
 void main() {
         IO cin;
-        int t = cin.read_int;
+        int t = 1;
+        // int t = cin.read_int;
         while (t--) {
-                
+                int n = cin.read_int;
+                string[] arr = new string[n];
+
+                for (int i = 0; i < n; i++) {
+                        arr[i] = cin.read_string;
+                }
+                // writeln(arr[0].length);
+                int count = 0;
+                bool flag = true;
+                for (int i = 0; i < arr[0].length; i++) {
+                        for (int j = 0; j < n - 1; j++) {
+                                if (arr[j][i] != arr[j + 1][i]) {
+                                        flag = false;
+                                        break;
+                                }
+                        }
+                        if (flag) count++;
+                }               
+                writeln(count);
         }        
 }
