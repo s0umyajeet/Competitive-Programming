@@ -25,6 +25,9 @@ int32_t main() {
                         max_len = max(max_len, (int)v[i].size());
                 }
                 
+                // for (auto x : v) {
+                //         cout << "\"" <<  x << "\"" << endl;
+                // }
                 cout << string(max_len + 2, '*') << endl;
                 int alt = 0;
                 for (int i = 0; i < (int)v.size(); i ++) {
