@@ -34,8 +34,17 @@ struct IO {
 void main() {
         IO cin;
         int t = 1;
-        t = cin.read_int;
+        // int t = cin.read_int;
         while (t--) {
-
+                int n = cin.read_int;
+                string s = cin.read_string;
+                string code = cin.read_string;
+                int ans = 0;
+                for (int i = 0; i < n; i++) {
+                        int met1 = min(s[i], code[i]) + 10 - max(s[i], code[i]);
+                        int met2 = abs(code[i] - s[i]);
+                        ans += min(met1, met2);
+                }
+                writeln(ans);
         }        
 }

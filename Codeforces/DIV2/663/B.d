@@ -31,11 +31,24 @@ struct IO {
         string[] tokens;
 }
 
+
+bool check (ref int[][] mat, int i, int j) {
+        while (mat[i][j] != 'C') {
+                if (mat[i][j] == 
+
 void main() {
         IO cin;
         int t = 1;
         t = cin.read_int;
         while (t--) {
+                int n = cin.read_int;
+                int m = cin.read_int;
+                char[][] mat = new char[][](n, m);
+
+                for (int i = 0; i < n; i++) {
+                        mat[i] = cin.read_string.dup;
+                }
+                writeln(count);
 
         }        
 }

@@ -36,6 +36,9 @@ void main() {
         int t = 1;
         t = cin.read_int;
         while (t--) {
-
+                int hh, mm;
+                hh = cin.read_int;
+                mm = cin.read_int;
+                writeln((24 - hh - 1) * 60 + (60 - mm));
         }        
 }

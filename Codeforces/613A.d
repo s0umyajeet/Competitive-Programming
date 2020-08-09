@@ -34,8 +34,19 @@ struct IO {
 void main() {
         IO cin;
         int t = 1;
-        t = cin.read_int;
+        // int t = cin.read_int;
         while (t--) {
+                int n = cin.read_int;
+                string s = cin.read_string;
 
+                int L = 0;
+                int R = 0;
+
+                for (int i = 0; i < n; i++) {
+                        if (s[i] == 'R') R++;
+                        if (s[i] == 'L') L--;
+                }
+
+                writeln(R - L + 1);
         }        
 }

@@ -34,8 +34,15 @@ struct IO {
 void main() {
         IO cin;
         int t = 1;
-        t = cin.read_int;
+        // t = cin.read_int;
         while (t--) {
-
+                int n = cin.read_int;
+                int min_peri = 99999999;
+                for (int i = 1; i <= sqrt(n.to!double); i++) {
+                        if (n % i == 0) {
+                                min_peri= min(2 * (n / i + i), min_peri);
+                        }
+                }
+                writeln(min_peri);
         }        
 }

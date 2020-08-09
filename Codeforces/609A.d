@@ -34,8 +34,9 @@ struct IO {
 void main() {
         IO cin;
         int t = 1;
-        t = cin.read_int;
+        // t = cin.read_int;
         while (t--) {
-
+                int a = cin.read_int;
+                writeln(a * 8, " ", a * 8);
         }        
 }

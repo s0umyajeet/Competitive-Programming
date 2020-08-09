@@ -36,6 +36,19 @@ void main() {
         int t = 1;
         t = cin.read_int;
         while (t--) {
-
-        }        
+                int n = cin.read_int;
+                int[] arr = new int[n];
+                foreach (ref i; arr) {
+                        i = cin.read_int;
+                }
+                sort(arr);
+                int ans = 1;
+                for (int i = 1; i < n; i++) {
+                        if (abs(arr[i] - arr[i - 1]) == 1) {
+                                ans = 2;
+                        }
+                }
+                writeln(ans);
+        }
 }
+

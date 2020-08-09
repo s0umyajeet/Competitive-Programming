@@ -34,8 +34,16 @@ struct IO {
 void main() {
         IO cin;
         int t = 1;
-        t = cin.read_int;
+        // int t = cin.read_int;
         while (t--) {
-
+                int n = cin.read_int;
+                int level = 0;
+                int sum = 0;
+                for (int i = 1; ; i++) {
+                        sum += (i * (i + 1)) / 2; 
+                        if (sum > n) break;
+                        level = i;
+                }
+                writeln(level); 
         }        
 }

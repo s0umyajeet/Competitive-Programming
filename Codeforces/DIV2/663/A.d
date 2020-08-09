@@ -36,6 +36,9 @@ void main() {
         int t = 1;
         t = cin.read_int;
         while (t--) {
-
+                int n = cin.read_int;
+                for (int i = 1; i <= n; i++) {
+                        write(i, " ");
+                }
         }        
 }

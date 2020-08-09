@@ -36,6 +36,9 @@ void main() {
         int t = 1;
         t = cin.read_int;
         while (t--) {
-
+                string s = cin.read_string;
+                if (endsWith(s, "po")) writeln("FILIPINO");
+                else if (endsWith(s, "desu") || endsWith(s, "masu")) writeln("JAPANESE");
+                else writeln("KOREAN");   
         }        
 }
