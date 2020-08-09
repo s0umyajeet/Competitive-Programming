@@ -24,7 +24,7 @@ struct IO {
                 return read_string.to!int;
         }
 
-        double read_double {
+        double read_double() {
                 return read_string.to!double;
         }
         
