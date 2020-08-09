@@ -52,7 +52,7 @@ void main() {
                         for (int i = 0; i < n - 1; i++) {
                                 write(arr[i][0], " ");
                         }
-                        write(d - arr[n - 1][0], " ");
+                        write(d - sum(arr[0..n][0]), " ");
                 } else {
                         writeln("NO");
                 }
