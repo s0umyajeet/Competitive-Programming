@@ -24,18 +24,24 @@ struct IO {
                 return read_string.to!int;
         }
 
-        double read_double {
+        double read_double() {
                 return read_string.to!double;
         }
-        
         string[] tokens;
 }
 
 void main() {
         IO cin;
         int t = 1;
-        int t = cin.read_int;
+        // int t = cin.read_int;
         while (t--) {
+                double d = cin.read_double;
+                double L = cin.read_double;
+                double v1 = cin.read_double;
+                double v2 = cin.read_double;
 
+                double rel_vel = v1 + v2;
+                double dist = L - d;
+                writefln("%.*f", 18, (dist) / (rel_vel));
         }        
 }

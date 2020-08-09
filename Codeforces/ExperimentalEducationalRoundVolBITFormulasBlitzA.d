@@ -23,10 +23,6 @@ struct IO {
         int read_int() {
                 return read_string.to!int;
         }
-
-        double read_double {
-                return read_string.to!double;
-        }
         
         string[] tokens;
 }
@@ -34,8 +30,9 @@ struct IO {
 void main() {
         IO cin;
         int t = 1;
-        int t = cin.read_int;
+        // int t = cin.read_int;
         while (t--) {
-
+                string s = cin.read_string;
+                writeln(25);
         }        
 }

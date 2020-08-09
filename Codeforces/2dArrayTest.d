@@ -23,10 +23,6 @@ struct IO {
         int read_int() {
                 return read_string.to!int;
         }
-
-        double read_double {
-                return read_string.to!double;
-        }
         
         string[] tokens;
 }
@@ -34,8 +30,23 @@ struct IO {
 void main() {
         IO cin;
         int t = 1;
-        int t = cin.read_int;
+        // int t = cin.read_int;
         while (t--) {
+                enum n = 10;
+                readf(" %s", &n);
+                int[][] mat = new int[n][n];
 
+                for (int i = 0; i < n; i++) {
+                        for (int j = 0; j < n; j++) {
+                                mat[i][j] = cin.read_int;
+                        }
+                }
+
+                for (int i = 0; i < n; i++) {
+                        for (int j = 0; j < n; j++) {
+                                write(mat[i][j], " ");
+                        }
+                        writeln();
+                }
         }        
 }
