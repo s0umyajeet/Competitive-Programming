@@ -37,23 +37,23 @@ void main() {
         // t = cin.read_int;
         while (t--) {
                 int n = cin.read_int;
-                int[n] arr;
+                int[] arr = new int[n];
                 for (int i = 0; i < n; i++) {
                         arr[i] = cin.read_int;
                 }
-                int[n] alice;
-                int[n] bob;
+                int[] alice = new int[n];
+                int[] bob = new int[n];
 
                 alice[0] = arr[0];
                 for (int i = 1; i < n; i++) {
-                        alice[i] = arr[i - 1] + arr[i];
+                        alice[i] = alice[i - 1] + arr[i];
                 }
                 
                 reverse(arr);
                 
                 bob[0] = arr[0];
                 for (int i = 1; i < n; i++) {
-                        bob[i] = arr[i - 1] + arr[i];
+                        bob[i] = bob[i - 1] + arr[i];
                 }
 
                 reverse(arr);
@@ -65,15 +65,15 @@ void main() {
                 int bob_a = 0;
                 int curr_a = 0;
                 int curr_b = 0;
-                
-                for (int i = 1; i < total_time; i++) {
-                        if (i == alice[curr_a]) {
+
+                for (int i = 0; i <= total_time; i++) {
+                        if (i == alice[curr_a] && eaten[curr_a] == false) {
                                 eaten[curr_a] = true;
                                 alice_a++;
                                 curr_a++;
                         } 
                         if (i == bob[curr_b] && eaten[n - 1 - curr_b] == false) {
-                                eaten[curr_b] = true;
+                                eaten[n - 1 - curr_b] = true;
                                 bob_a++;
                                 curr_b++;
                         }
