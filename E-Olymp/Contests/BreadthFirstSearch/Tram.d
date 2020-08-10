@@ -29,21 +29,20 @@ struct IO {
         
         string[] tokens;
 }
-
 int n, s, f;
 
 int bfs(ref int[][] adj) {
         bool[] visited = new bool[n];
         visited[s - 1] = true;
         
-        int[] q;
-        q ~= s - 1;     
-
+        int[] q = new int[n];
+        q ~= s - 1;
+        
         int[] dist = new int[n];
         dist[s - 1] = 0;
-        
+
         while (q.length > 0) {
-                int v = q.front();
+                int v = q.front;
                 q = q.remove(0);
 
                 foreach (u; adj[v]) {
@@ -55,7 +54,7 @@ int bfs(ref int[][] adj) {
                         }
                 }
         }
-        return 0;
+        return -1;
 }
 
 void main() {
@@ -67,17 +66,17 @@ void main() {
                 s = cin.read_int;
                 f = cin.read_int;
 
-                int input;
                 int[][] adj = new int[][](n);
+
                 for (int i = 0; i < n; i++) {
-                        for (int j = 0; j < n; j++) {
-                                input = cin.read_int;
-                                if (input) {
-                                        adj[i] ~= j;
-                                        adj[j] ~= i;
-                                }
+                        int m = cin.read_int;
+                        for (int j = 0; j < m; j++) {
+                                int node = cin.read_int;
+                                adj[node - 1] ~= i;
+                                adj[i] ~= node - 1;
                         }
                 }
-                writeln(bfs(adj));
+
+                writeln(bfs(adj) - 1);
         }        
 }

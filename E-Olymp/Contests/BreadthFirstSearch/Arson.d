@@ -30,54 +30,58 @@ struct IO {
         string[] tokens;
 }
 
-int n, s, f;
+int n, m;
 
-int bfs(ref int[][] adj) {
+void bfs(ref int[][] adj, int start, ref int[] dist) {
         bool[] visited = new bool[n];
-        visited[s - 1] = true;
+        visited[start - 1] = true;
         
         int[] q;
-        q ~= s - 1;     
+        q ~= start - 1;
 
-        int[] dist = new int[n];
-        dist[s - 1] = 0;
+        dist[start - 1] = 0;
         
         while (q.length > 0) {
-                int v = q.front();
+                int v = q.front;
                 q = q.remove(0);
-
+                // write("Running ");
                 foreach (u; adj[v]) {
                         if (!visited[u]) {
                                 visited[u] = true;
-                                dist[u] = dist[v] + 1;
+                                dist[u] = min(dist[u], dist[v] + 1);
                                 q ~= u;
-                                if (u == f - 1) return dist[u];
                         }
                 }
         }
-        return 0;
 }
-
+ 
 void main() {
         IO cin;
         int t = 1;
         // t = cin.read_int;
         while (t--) {
                 n = cin.read_int;
-                s = cin.read_int;
-                f = cin.read_int;
-
-                int input;
+                m = cin.read_int;
                 int[][] adj = new int[][](n);
+                int[] dist = new int[n];
+
                 for (int i = 0; i < n; i++) {
-                        for (int j = 0; j < n; j++) {
-                                input = cin.read_int;
-                                if (input) {
-                                        adj[i] ~= j;
-                                        adj[j] ~= i;
-                                }
-                        }
+                        dist[i] = 999999999;
                 }
-                writeln(bfs(adj));
+                for (int i = 0; i < m; i++) {
+                        int a = cin.read_int;
+                        int b = cin.read_int;
+                        adj[a - 1] ~= b - 1;
+                        adj[b - 1] ~= a - 1;
+                }
+
+                int k = cin.read_int;
+                for (int i = 0; i < k; i++) {
+                        int s = cin.read_int;
+                        bfs(adj, s, dist);
+                }
+
+                writeln(dist.maxElement);
+                writeln(dist.maxIndex + 1);
         }        
 }
