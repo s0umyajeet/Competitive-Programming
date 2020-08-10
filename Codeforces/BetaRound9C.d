@@ -27,12 +27,28 @@ struct IO {
         string[] tk;
 }
 
+char[] dec_to_binary(int n) {
+        char[] s;
+        while (n > 0) {
+                s ~= (n & 1) + 48;
+                n >>= 1;               
+        }
+        reverse(s);
+        return s;
+}
+
 void main() {
         IO cin;
         int t = 1;
-        t = cin.read_int;
+        // t = cin.read_int;
         while (t--) {
                 int n = cin.read_int;
-                writeln(n);
+                int count = 0;
+                for (int i = 1; i < (1 << 10); i++) {
+                        if (dec_to_binary(i).to!long <= n) {
+                                count++;
+                        } else break;
+                }
+                writeln(count);
         }        
 }
