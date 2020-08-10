@@ -67,12 +67,12 @@ void main() {
                 int curr_b = 0;
 
                 for (int i = 0; i <= total_time; i++) {
-                        if (i == alice[curr_a] && eaten[curr_a] == false) {
+                        if (i == sum(arr[0..curr_a + 1] && eaten[curr_a] == false) {
                                 eaten[curr_a] = true;
                                 alice_a++;
                                 curr_a++;
                         } 
-                        if (i == bob[curr_b] && eaten[n - 1 - curr_b] == false) {
+                        if (i == sum(arr[n - 1..curr_b] && eaten[n - 1 - curr_b] == false) {
                                 eaten[n - 1 - curr_b] = true;
                                 bob_a++;
                                 curr_b++;

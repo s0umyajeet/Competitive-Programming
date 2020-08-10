@@ -19,6 +19,7 @@ struct IO {
                 tokens.popFront;
                 return token;
         }
+        
         int read_int() {
                 return read_string.to!int;
         }
@@ -33,8 +34,10 @@ struct IO {
 void main() {
         IO cin;
         int t = 1;
-        t = cin.read_int;
+        // t = cin.read_int;
         while (t--) {
-
+                int[] arr = [12, 2, 4, 5, 6];
+                writeln(sum(arr[0..3]));
+                writeln(sum(arr[3..1]));
         }        
 }

@@ -19,6 +19,7 @@ struct IO {
                 tokens.popFront;
                 return token;
         }
+        
         int read_int() {
                 return read_string.to!int;
         }
@@ -35,6 +36,7 @@ void main() {
         int t = 1;
         t = cin.read_int;
         while (t--) {
-
+                char[] s = "hello world".dup;
+                writeln(s[0..1]);
         }        
 }

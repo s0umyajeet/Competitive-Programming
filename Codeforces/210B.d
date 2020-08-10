@@ -33,8 +33,22 @@ struct IO {
 void main() {
         IO cin;
         int t = 1;
-        t = cin.read_int;
+        // t = cin.read_int;
         while (t--) {
+                int n = cin.read_int;
+                int k = cin.read_int;
 
+                int[] arr = new int[n];
+                if (k == n) writeln(-1);
+                else {
+                        for (int i = n; i > n - k; i--) {
+                                arr[i - 1] = i;
+                        }
+                        for (int i = 1; i < n - k; i++) {
+                                arr[i - 1] = i + 1;
+                        }
+                        arr[n - k - 1] = 1;
+                        foreach (i; arr) write(i, " ");
+                }
         }        
 }

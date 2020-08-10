@@ -19,6 +19,7 @@ struct IO {
                 tokens.popFront;
                 return token;
         }
+        
         int read_int() {
                 return read_string.to!int;
         }
@@ -35,6 +36,15 @@ void main() {
         int t = 1;
         t = cin.read_int;
         while (t--) {
-
+                int n;
+                readf(" %s", &n);
+                long k = 4 * n;
+                long count = 0;
+                long i = 1;
+                while ((i + n + 1) % k != 1) {
+                        count++;
+                        i += n + 1;
+                }
+                writeln(count);
         }        
 }
