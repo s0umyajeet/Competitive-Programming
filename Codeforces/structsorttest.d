@@ -27,11 +27,24 @@ struct IO {
         }
 }
 
+struct pair {
+        int first;
+        int second;
+}
+ 
 void main() {
         IO cin;
         int t = 1;
-        t = cin.read_int;
+        // t = cin.read_int;
         while (t--) {
-                
+                pair[5] arr;
+                for (int i = 0; i < 5; i++) {
+                        arr[i].first = cin.read_int;
+                        arr[i].second = cin.read_int;
+                }
+                arr.sort!((a, b) => a.first < b.first);
+                foreach (i; arr) {
+                        writeln(i.first, " ", i.second);
+                }
         }        
 }
