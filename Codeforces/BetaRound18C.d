@@ -35,11 +35,27 @@ void main() {
                 int n = cin.read_int;
                 int[] arr = new int[n];
                 foreach (ref i; arr) i = cin.read_int;
+
+                int[] sum_for = new int[n];
+                sum_for[0] = arr[0];
+                for (int i = 1; i < n; i++) {
+                        sum_for[i] += arr[i] + sum_for[i - 1];
+                }
+
+                reverse(arr);
+
+                int[] sum_back = new int[n];
+                sum_back[0] = arr[0];
+                for (int i = 1; i < n; i++) {
+                        sum_back[i] += arr[i] + sum_back[i - 1];
+                }
+
                 int count = 0;
                 for (int i = 0; i < n - 1; i++) {
-                        if (sum(arr[0..i + 1]) == sum(arr[i + 1..n]))
+                        if (sum_for[i] == sum_back[n - 2 - i])
                                 count++;
                 }
+                
                 writeln(count);
         }        
 }
