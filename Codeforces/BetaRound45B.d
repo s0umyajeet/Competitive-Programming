@@ -27,7 +27,7 @@ struct IO {
         }
 }
 
-int a, b, n, m;
+int n, m;
 int[][] mat;
 
 void main() {
@@ -43,36 +43,20 @@ void main() {
                                 mat[i][j] = cin.readInt;
                         }
                 }
+                int a, b;
                 a = cin.readInt;
                 b = cin.readInt;
-                if (a == b) writeln(colWise());
-                else writeln(min(colWise(), rowWise()));
+                writeln(min(solve(a, b), solve(b, a)));
         }        
 }
 
-int colWise() {
+int solve(int a, int b) {
         int minn = 99999999;
         for (int i = 0; i < n - b + 1; i++) {
                 for (int j = 0; j < m - a + 1; j++) {
                         int trees = 0;
                         for (int dx = 0; dx < b; dx++) {
                                 for (int dy = 0; dy < a; dy++) {
-                                        if (mat[i + dx][j + dy]) trees++;
-                                }
-                        }
-                        minn = min(minn, trees);
-                }
-        }
-        return minn;
-}
-
-int rowWise() {
-        int minn = 99999999;
-        for (int i = 0; i < n - a + 1; i++) {
-                for (int j = 0; j < m - b + 1; j++) {
-                        int trees = 0;
-                        for (int dx = 0; dx < a; dx++) {
-                                for (int dy = 0; dy < b; dy++) {
                                         if (mat[i + dx][j + dy]) trees++;
                                 }
                         }
