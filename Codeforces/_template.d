@@ -12,25 +12,25 @@ import std.format;
 
 struct IO {
         string[] tk;
-        string read_string() {
+        string readString() {
                 while (tk.empty) 
                         tk = readln.split;
                 auto tkt = tk.front;
                 tk.popFront;
                 return tkt;
         }
-        int read_int() { 
-                return read_string.to!int; 
+        int readInt() { 
+                return readString.to!int; 
         }
-        double read_double() { 
-                return read_string.to!double; 
+        double readDouble() { 
+                return readString.to!double; 
         }
 }
 
 void main() {
         IO cin;
         int t = 1;
-        t = cin.read_int;
+        t = cin.readInt;
         while (t--) {
                 
         }        
