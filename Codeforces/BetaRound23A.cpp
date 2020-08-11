@@ -3,10 +3,11 @@
 #define endl "\n"
 using namespace std;
 
-int count_substr(string s, string sample) {
+int count_substr(const string &s, const string &sample) {
         int count = 0;
-        for (int i = 0; i < s.size() - sample.size() + 1; i++) {
-                if (s.substr(i, sample.size()) == sample) {
+        int sz = sample.size();
+        for (int i = 0; i < s.size() - sz + 1; i++) {
+                if (s.substr(i, sz) == sample) {
                         count++; 
                 }
         }
@@ -30,7 +31,7 @@ int32_t main() {
                         for (int j = 0; j < l - i + 1; j++) {
                                 int c = count_substr(s, s.substr(j, i)); 
                                 if (c >= 2) {
-                                        cout << s.substr(j, i).size() << endl; 
+                                        cout << i << endl; 
                                         return 0;
                                 }
                         }
