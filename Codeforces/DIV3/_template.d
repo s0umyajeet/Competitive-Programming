@@ -11,31 +11,27 @@ import std.typecons;
 import std.format;
 
 struct IO {
-        string read_string() {
-                while (tokens.empty) {
-                tokens = readln.split;
+        string[] tk;
+        string readString() {
+                while (tk.empty) 
+                        tk = readln.split;
+                auto tkt = tk.front;
+                tk.popFront;
+                return tkt;
         }
-        auto token = tokens.front;
-                tokens.popFront;
-                return token;
+        int readInt() { 
+                return readString.to!int; 
         }
-        
-        int read_int() {
-                return read_string.to!int;
+        double readDouble() { 
+                return readString.to!double; 
         }
-
-        double read_double() {
-                return read_string.to!double;
-        }
-        
-        string[] tokens;
 }
 
 void main() {
         IO cin;
         int t = 1;
-        t = cin.read_int;
+        t = cin.readInt;
         while (t--) {
-
+                
         }        
 }

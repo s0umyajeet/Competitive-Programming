@@ -30,8 +30,16 @@ struct IO {
 void main() {
         IO cin;
         int t = 1;
-        t = cin.readInt;
+        // t = cin.readInt;
         while (t--) {
-                
+                string s = cin.readString;
+                int[string] map;
+                for (int i = 0; i < 10; i++) {
+                        string s1 = cin.readString;
+                        map[s1] = i;
+                }
+                for (int i = 0; i < 80; i += 10) {
+                        write(map[s[i..i + 10]]);
+                }
         }        
 }
