@@ -27,11 +27,17 @@ struct IO {
         }
 }
 
+int solve(int a, int b) {
+        if (a == 0 || b == 0) return 0;
+        else return max(a, b) / min(a, b) + solve(max(a, b) % min(a, b), min(a, b));
+}
 void main() {
         IO cin;
         int t = 1;
-        // t = cin.readInt;
+        t = cin.readInt;
         while (t--) {
-                
+                int a = cin.readInt;
+                int b = cin.readInt;
+                writeln(solve(a, b));
         }        
 }
