@@ -32,9 +32,6 @@ void main() {
         int t = 1;
         // t = cin.readInt;
         while (t--) {
-                int n = cin.readInt;
-                int x = cin.readInt;
-                int y = cin.readInt;
-                writeln(ceil(y / 100.0 * n) > x ? ceil(y / 100.0 * n) - x : 0);
+                
         }        
 }

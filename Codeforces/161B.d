@@ -33,8 +33,16 @@ void main() {
         // t = cin.readInt;
         while (t--) {
                 int n = cin.readInt;
-                int x = cin.readInt;
-                int y = cin.readInt;
-                writeln(ceil(y / 100.0 * n) > x ? ceil(y / 100.0 * n) - x : 0);
+                int k = cin.readInt;
+                int[] arr = new int[n];
+                for (int i = 0; i < n; i++) {
+                        arr[i] = cin.readInt;
+                }
+                if (n - k < 0) {
+                        writeln(-1);
+                        return;
+                }
+                reverse(sort(arr));
+                writeln(arr[k - 1], " ", 0);
         }        
 }

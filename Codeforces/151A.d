@@ -33,8 +33,12 @@ void main() {
         // t = cin.readInt;
         while (t--) {
                 int n = cin.readInt;
-                int x = cin.readInt;
-                int y = cin.readInt;
-                writeln(ceil(y / 100.0 * n) > x ? ceil(y / 100.0 * n) - x : 0);
+                if (n <= 2) writeln(-1);
+                else {
+                        for (int i = n; i >= 1; i--) {
+                                write(i, " ");
+                        }
+                        writeln();
+                }
         }        
 }
