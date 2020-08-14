@@ -1,0 +1,66 @@
+module _template;
+import std.stdio;
+import std.string;
+import std.algorithm;
+import std.container;
+import std.range;
+import std.math;
+import std.numeric;
+import std.conv;
+import std.typecons;
+import std.format;
+
+struct IO {
+        string[] tk;
+        string readString() {
+                while (tk.empty) 
+                        tk = readln.split;
+                auto tkt = tk.front;
+                tk.popFront;
+                return tkt;
+        }
+        int readInt() { 
+                return readString.to!int; 
+        }
+        double readDouble() { 
+                return readString.to!double; 
+        }
+}
+
+void main() {
+        IO cin;
+        int t = 1;
+        // t = cin.readInt;
+        while (t--) {
+                int n = cin.readInt;
+                int m = cin.readInt;
+
+                int[][] g = new int[][](n, m);
+                string[] mat = new string[n];
+                for (int i = 0; i < n; i++) {
+                        mat[i] = cin.readString;
+                        for (int j = 0; j < m; j++) 
+                                g[i][j] = mat[i][j] - 48;
+                }
+                
+                int[] subMax;
+                for (int i = 0; i < m; i++) {
+                        int maxx = -9999;
+                        for (int j = 0; j < n; j++) {
+                                maxx = max(maxx, g[j][i]);
+                        }
+                        subMax ~= maxx;
+                }
+
+                int ans = 0;
+                int[] best = new int[n];
+                for (int i = 0; i < m; i++) {
+                        int maxCount = 0;
+                        for (int j = 0; j < n; j++) {
+                                if (g[j][i] == subMax[i])
+                                        best[j] = 1;
+                        }
+                }
+                writeln(best.count(1));
+        }        
+}

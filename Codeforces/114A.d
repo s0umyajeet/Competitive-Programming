@@ -32,6 +32,10 @@ void main() {
         int t = 1;
         // t = cin.readInt;
         while (t--) {
-                
+                int n = cin.readInt;
+                int x = cin.readInt;
+                int y = cin.readInt;
+                int p = ((y / 100) * n); 
+                writeln(p > x ? p - x : 0);
         }        
 }

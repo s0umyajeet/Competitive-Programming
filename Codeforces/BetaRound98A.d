@@ -32,6 +32,21 @@ void main() {
         int t = 1;
         // t = cin.readInt;
         while (t--) {
-                
-        }        
+                char[] s = cin.readString.dup;
+                int turns = 1;
+                char c = s[0];
+                int i = 1;
+
+                while (i < s.length) {
+                        int count = 1;
+                        while (i < s.length && s[i] == c && count < 5) {
+                                i++;
+                                count++;
+                        }
+                        turns++;
+                        if (c == 'C') c = 'P';
+                        else c = 'C';
+                } 
+                writeln(turns);
+        }             
 }
