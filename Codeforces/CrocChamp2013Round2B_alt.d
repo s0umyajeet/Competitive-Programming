@@ -27,15 +27,6 @@ struct IO {
         }
 }
 
-bool solve(int pos, int n, int k, ref string arr) {
-        bool ans = false;
-        for (int j = 1; j <= k; j++) {
-                if (pos + j >= n - 1) return true;
-                if (arr[pos + j] == '.') ans |= solve(pos + j, n, k, arr);
-        }
-        return ans;
-}
-
 void main() {
         IO cin;
         int t = 1;
@@ -44,6 +35,12 @@ void main() {
                 int n = cin.readInt;
                 int k = cin.readInt;
                 string s = cin.readString;
-                writeln(solve(0, n, k, s) ? "YES" : "NO");
+                int count = 0;
+                bool fail = false;
+                for (int i = 0; i < n; i++) {
+                        count = s[i] == '#' ? count + 1 : 0;
+                        if (count >= k) fail = true;                        
+                }
+                writeln(fail ? "NO" : "YES");
         }        
 }

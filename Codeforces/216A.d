@@ -27,23 +27,27 @@ struct IO {
         }
 }
 
-bool solve(int pos, int n, int k, ref string arr) {
-        bool ans = false;
-        for (int j = 1; j <= k; j++) {
-                if (pos + j >= n - 1) return true;
-                if (arr[pos + j] == '.') ans |= solve(pos + j, n, k, arr);
-        }
-        return ans;
-}
-
 void main() {
         IO cin;
         int t = 1;
         // t = cin.readInt;
         while (t--) {
                 int n = cin.readInt;
-                int k = cin.readInt;
-                string s = cin.readString;
-                writeln(solve(0, n, k, s) ? "YES" : "NO");
+                int b = cin.readInt;
+                int p = cin.readInt;
+                int w = 0;
+                for (int i = 0; i < n; i++) {
+                        int x = cin.readInt;
+                        if (x == 1) {
+                                (b == 0) ? w++ : b--;
+                        }
+                        if (x == 2) {
+                                if (b == 0 && p == 0) w++;
+                                else if (b == 0 && p > 0) p--;
+                                else if (p == 0 && b > 0) b--;
+                                else p--;
+                        }
+                }
+                writeln(w);
         }        
 }
