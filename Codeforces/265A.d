@@ -27,26 +27,26 @@ struct IO {
         }
 }
 
-int solve(string s) {
-        if (s.to!int > 0) return s.to!int;
-        else {
-                if (s.to!int > -10) return s.to!int;
-                else {
-                        char[] s1 = s.dup;
-                        int n = s1.length;
-                        if (s1[n - 1] < s[n - 2]) {
-                                s1 = s1.remove(n - 2);
-                        } else s1 = s1.remove(n - 1);
-                        return s1.to!int;
-                }
-        }
-}
 void main() {
         IO cin;
         int t = 1;
         // t = cin.readInt;
         while (t--) {
-                string s = cin.readString;
-                writeln(solve(s));
+                int n = cin.readInt;
+                string arr = cin.readString;
+                int ans = 0;
+                int carry = 0;
+                for (int i = 0; i < n; i++) {
+                        if (!carry && !(arr[i] - '0')) {
+                                ans++;
+                                carry = 0;
+                        } else if (carry && (arr[i] - '0')) carry = 1;
+                        else if (carry && !(arr[i] - '0')) carry = 1;
+                        else {        
+                                ans++;
+                                carry = 1;
+                        }
+                }
+                writeln(ans);
         }        
 }
