@@ -13,27 +13,13 @@ int32_t main() {
 	while (t--) {
                 int n, k;
                 cin >> n >> k;
-                unordered_map<int, int> count;
-                int v[n];
+                vector<int> v(n);
+                for (auto &x : v) cin >> x;
+                sort(v.begin(), v.end());
+                int ans = -999999;
                 for (int i = 0; i < n; i++) {
-                        cin >> v[i];
-                }
-                set<int> counted;
-                for (int i = 0; i < n; i++) {
-                        if (counted.find(v[i]) == counted.end()) {
-                                counted.insert(v[i]);
-                                for (int j = 0; j < n; j++) {
-                                        if (v[j] >= v[i]) {
-                                                count[v[i]]++;
-                                        }
-                                }
-                        }
-                }
-                int ans = -99999;
-                for (auto x : count) {
-                        if (x.second >= k) {
-                                ans = max(ans, x.first);
-                        }
+                        auto itr = lower_bound(v.begin(), v.end(), v[i]);
+                        if (v.end() - itr >= k) ans = max(ans, v[i]);
                 }
                 cout << ans << endl;
 	}
