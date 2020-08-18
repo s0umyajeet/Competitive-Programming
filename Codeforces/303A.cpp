@@ -13,7 +13,6 @@ int32_t main() {
 	while (t--) {
                 int n;
                 cin >> n;
-                set<int> goodCars;
                 vector<bool> car(n, true);
                 for (int i = 0; i < n; i++) {
                         for (int j = 0; j < n; j++) {
