@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 #define int long long
-#define coutans cout << "ans: " //debug
 #define endl "\n"
 using namespace std;
 
