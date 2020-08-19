@@ -64,10 +64,7 @@ void main() {
                 m = cin.read_int;
                 int[][] adj = new int[][](n);
                 int[] dist = new int[n];
-
-                for (int i = 0; i < n; i++) {
-                        dist[i] = 999999999;
-                }
+                dist[] = 9999999;
                 for (int i = 0; i < m; i++) {
                         int a = cin.read_int;
                         int b = cin.read_int;

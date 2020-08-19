@@ -29,9 +29,10 @@ struct IO {
         
         string[] tokens;
 }
-int n, s, f;
 
-int bfs(ref int[][] adj) {
+// int n, m, f;
+
+int bfs(ref int[][] adj, int n, int s, int f) {
         bool[] visited = new bool[n];
         visited[s - 1] = true;
         
@@ -62,18 +63,32 @@ void main() {
         int t = 1;
         // t = cin.read_int;
         while (t--) {
+                int n, m, f;
                 n = cin.read_int;
-                s = cin.read_int;
+                m = cin.read_int;
                 f = cin.read_int;
+
+                // writeln(n, " ", m, " ", f);
 
                 int[][] adj = new int[][](n);
 
-                for (int i = 0; i < n; i++) {
+                for (int i = 0; i < m; i++) {
                         int a = cin.read_int;
                         int b = cin.read_int;
-                        adj[a - 1] ~= b - 1;
+                        adj[a - 1] ~= (b - 1);
+                }       
+
+                for (int i = 0; i < n; i++) {
+                        for (int j = 0; j < adj[i].length; i++) {
+                                write(adj[i][j], " ");
+                        }
+                        writeln();
                 }
 
-                writeln(bfs(adj) - 1);
+                int maxx = -999;
+                for (int i = 0; i < n; i++) {
+                        maxx = max(maxx, bfs(adj, n, i, f));
+                }
+                writeln(maxx);
         }        
 }
