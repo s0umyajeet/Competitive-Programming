@@ -7,10 +7,10 @@ int32_t main() {
         ios_base::sync_with_stdio(0);
         cin.tie(0);
         
-        int t = 1;
-        cin >> t;
+        int tc = 1;
+        cin >> tc;
 
-        while(t--) {
-                
+        for (int i = 1; i <= tc; i++) {
+        
         }
 }
