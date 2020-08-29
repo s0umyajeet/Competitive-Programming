@@ -1,44 +1,41 @@
-//Previous submission made in D language. If this gets TLE too, don't blame D.
-//dense graph implementation O(n^2) --> finding the next minimum vertex using O(n) iteration
-//without set or priority queue (possible TLE)
-
+//using set for O(E + VlogV)
 #include <bits/stdc++.h>
 #define int long long
 #define endl "\n"
+#define INT_MAX LLONG_MAX
 using namespace std;
-int n, m;
 
-int findNextMin(vector<bool> &visited, vector<int> &dist) {
-        int min_dist = INT_MAX;
-        int min_index = 0;
-        for (int i = 0; i < n; i++) {
-                if (!visited[i] && dist[i] <= min_dist) {
-                        min_dist = dist[i];
-                        min_index = i;
-                }
-        }
-        return min_index;
-}
+int n, m;
 
 void Dijkstra(vector<vector<pair<int, int>>> &adj) {
         int s = 0;
         int f = n - 1;
+        
         vector<int> dist(n, INT_MAX);
         vector<bool> visited(n, false);
         vector<int> p(n, -1);
+        
         dist[s] = 0;
-        for (int count = 0; count < n; count++) { 
-                int u = findNextMin(visited, dist);
-                visited[u] = true; 
-                for (pair<int, int> x : adj[u]) {
-                        int to = x.second;
+
+        set<pair<int, int>> queue;
+        queue.insert({0, s});
+	
+        while(!queue.empty()) {
+		auto top = queue.begin();
+		int u = top->second;
+		queue.erase(top);
+		if (u == n) return;
+		for (auto x : adj[u]) { 
+			int to = x.second; 
                         int edge = x.first;
-                        if (!visited[to] && dist[u] != INT_MAX && dist[u] + edge < dist[to]) {
-                                dist[to] = dist[u] + edge; 
+			if (dist[u] + edge < dist[to]) {
+				queue.erase({dist[to], to});
+				dist[to] = dist[u] + edge;
+				queue.insert({dist[to], to});
                                 p[to] = u;
-                        }
-                }
-        } 
+			}
+		}
+	} 
         if (dist[f] == INT_MAX) {
                 cout << -1 << endl;
         } else {
