@@ -7,6 +7,7 @@
 #define endl "\n"
 using namespace std;
 int n, m;
+
 int findNextMin(vector<bool> &visited, vector<int> &dist) {
         int min_dist = INT_MAX;
         int min_index = 0;
