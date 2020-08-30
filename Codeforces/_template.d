@@ -29,9 +29,10 @@ struct IO {
 
 void main() {
         IO cin;
-        int t = 1;
-        // t = cin.readInt;
-        while (t--) {
-                
-        }        
+        int n_Cases = 1;
+        n_Cases = cin.readInt;
+        
+	for (int case_i = 1; case_i <= n_Cases; case_i++) {
+
+	}    
 }
