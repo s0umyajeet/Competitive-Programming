@@ -9,7 +9,7 @@ int32_t main() {
 	cin.tie(0);
 
 	int n_Cases = 1;
-	cin >> n_Cases;
+	// cin >> n_Cases;
 
 	for (int case_i = 1; case_i <= n_Cases; case_i++) {
 
