@@ -33,6 +33,17 @@ void main() {
         // n_Cases = cin.readInt;
         
 	for (int case_i = 1; case_i <= n_Cases; case_i++) {
-
+                int n = cin.readInt;
+                int[] arr = new int[n];
+                int sum = 0;
+                int smallestOdd = int.max;
+                foreach (ref i; arr) {
+                        i = cin.readInt;
+                        sum += i;
+                        if ((i % 2) && i < smallestOdd) {
+                                smallestOdd = i;
+                        }
+                }
+                writeln((sum & 1 ? sum : sum - (smallestOdd == int.max ? sum : smallestOdd)));
 	}    
 }

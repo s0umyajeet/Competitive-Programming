@@ -33,6 +33,26 @@ void main() {
         // n_Cases = cin.readInt;
         
 	for (int case_i = 1; case_i <= n_Cases; case_i++) {
+                int n = cin.readInt;
+                int k = cin.readInt;
+                int[] arr = new int[n];
+                int[101] count = 0;
+                foreach (ref i; arr) {
+                        i = cin.readInt;
+                        count[i]++;
+                }
 
+                int level = 0;
+                while (count[k] != n) {
+                        auto temp = count.dup;
+                        for (int i = 0; i < k; i++) {
+                                if (temp[i]) {
+                                        count[i]--;
+                                        count[i + 1]++;
+                                }
+                        }
+                        level++;
+                }
+                writeln(level);
 	}    
 }

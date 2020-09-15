@@ -1,0 +1,2 @@
+
+                double t = cin.readDouble;

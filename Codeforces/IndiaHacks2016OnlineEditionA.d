@@ -29,10 +29,17 @@ struct IO {
 
 void main() {
         IO cin;
-        int n_Cases = 1;
-        // n_Cases = cin.readInt;
-        
-	for (int case_i = 1; case_i <= n_Cases; case_i++) {
-
-	}    
+        int t = 1;
+        // t = cin.readInt;
+        while (t--) {
+                int n = cin.readInt;
+                int[] arr = new int[n];
+                foreach (ref i; arr) i = cin.readInt;
+                bool possible = false;
+                for (int i = 0; i < n; i++) {
+                        if (arr.canFind(arr[i] + 1) && arr.canFind(arr[i] - 1)) 
+                                possible = true;
+                }
+                writeln(possible ? "YES" : "NO");
+        }        
 }

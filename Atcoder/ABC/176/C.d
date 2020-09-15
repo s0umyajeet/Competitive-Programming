@@ -29,10 +29,20 @@ struct IO {
 
 void main() {
         IO cin;
-        int n_Cases = 1;
-        // n_Cases = cin.readInt;
-        
-	for (int case_i = 1; case_i <= n_Cases; case_i++) {
-
-	}    
+        int t = 1;
+        // t = cin.readInt;
+        while (t--) {
+                int n = cin.readInt;
+                int[] arr = new int[n];
+                foreach (ref i; arr) i = cin.readInt;
+                long ans = 0;
+                for (int i = 0; i < n - 1; i++) {
+                        int diff = 0;
+                        if (arr[i + 1] <= arr[i])
+                                diff = arr[i] - arr[i + 1];
+                        write(diff, " ");
+                        ans += diff;
+                }
+                writeln(ans);
+        }        
 }

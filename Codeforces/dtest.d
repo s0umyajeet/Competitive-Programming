@@ -29,10 +29,10 @@ struct IO {
 
 void main() {
         IO cin;
-        int n_Cases = 1;
-        // n_Cases = cin.readInt;
-        
-	for (int case_i = 1; case_i <= n_Cases; case_i++) {
-
-	}    
+        int tCount = 1;
+        // t = cin.readInt;
+        for (int tCase = 0; tCase < tCount; tCase++) {
+                int[] arr = new int[](4);
+                foreach (i; arr) write(i, " ");
+        }        
 }

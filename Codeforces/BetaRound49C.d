@@ -33,6 +33,20 @@ void main() {
         // n_Cases = cin.readInt;
         
 	for (int case_i = 1; case_i <= n_Cases; case_i++) {
-
+                int n = cin.readInt;
+                int i = 1;
+                int j = n;
+                int count = 0;
+                while (1) {
+                        if (count % 2) {
+                                write(j, " ");
+                                j--;
+                        } else {
+                                write(i, " ");
+                                i++;
+                        }
+                        count++;
+                        if (count == n) break;
+                }
 	}    
 }
